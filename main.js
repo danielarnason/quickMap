@@ -1,4 +1,5 @@
 let L = require('leaflet')
+let css = require('./style.css')
 
 let map = L.map('map').setView([51.505, -0.09], 13);
 
