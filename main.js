@@ -5,7 +5,7 @@ const adresse = document.querySelector('#map').dataset.adresse
 const zoomLevel = document.querySelector('#map').dataset.zoomlevel
 const navn = document.querySelector('#map').dataset.navn
 
-const addAdresseToMap = async adresse => {
+const createMap = async adresse => {
     let url = `https://api.dataforsyningen.dk/adgangsadresser?q=${adresse}&struktur=mini`
     let dawaData = await fetch(url)
     let data = await dawaData.json()
@@ -15,8 +15,8 @@ const addAdresseToMap = async adresse => {
         center: adressCoordinates,
         zoom: zoomLevel,
         zoomControl: false,
-        attributionControl: false
     });
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com" title="A Javascript library for interactve maps">Leaflet</a>')
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -30,4 +30,4 @@ const addAdresseToMap = async adresse => {
     
 }
 
-addAdresseToMap(adresse)
+createMap(adresse)
