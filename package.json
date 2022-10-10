@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "watchify -p tinyify -t browserify-css main.js -o dist/quickMap.js",
+    "watch": "watchify -t browserify-css main.js -o dist/quickMap.js",
     "build": "browserify -p tinyify -t browserify-css main.js -o dist/quickMap.js"
   },
   "keywords": [],
